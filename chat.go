@@ -223,6 +223,14 @@ func MsgOptionEnableLinkUnfurl() MsgOption {
 	}
 }
 
+// MsgOptionDisableLinkUnfurl disables link unfurling
+func MsgOptionDisableLinkUnfurl() MsgOption {
+	return func(config *sendConfig) error {
+		config.values.Set("unfurl_links", "false")
+		return nil
+	}
+}
+
 // MsgOptionDisableMediaUnfurl disables media unfurling.
 func MsgOptionDisableMediaUnfurl() MsgOption {
 	return func(config *sendConfig) error {
